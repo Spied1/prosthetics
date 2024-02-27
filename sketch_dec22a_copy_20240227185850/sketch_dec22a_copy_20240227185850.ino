@@ -1,40 +1,45 @@
 class Prosthetic
 {
 private:
-	int signalValue;
-	int thresholder;
-	int analogPin0;
-	bool signalCheck;
+  int signalValue;
+  int thresholder;
+  int analogPin0;
+  bool signalCheck;
   int reductedSignal;
 public:
-	Prosthetic():thresholder(360),signalCheck(false),signalValue(0),analogPin0(A0),reductedSignal(0)
-	{
-	}
+  Prosthetic()
+  :thresholder(360)
+  ,signalCheck(false)
+  ,signalValue(0)
+  ,analogPin0(A0)
+  ,reductedSignal(0)
+  {
+  }
 
-	int get_signal()
-	{
-		signalValue = analogRead(analogPin0);
-		return signalValue;
-	}
+  int get_signal() const
+  {
+    signalValue = analogRead(analogPin0);
+    return signalValue;
+  }
 
-	int noise_reduction()
-	{
-		int reductedSignal = get_signal();
-		return reductedSignal;
-	}
+  int noise_reduction() const
+  {
+    int reductedSignal = get_signal();
+    return reductedSignal;
+  }
 
-	bool check()
-	{
-		reductedSignal = noise_reduction();
-		if (reductedSignal > thresholder)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
+  bool check() const
+  {
+    reductedSignal = noise_reduction();
+    if (reductedSignal > thresholder)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
 };
 
 
@@ -49,4 +54,3 @@ void loop() {
   Serial.println(hand.check());
   delay(100); // Задержка для улучшения читаемости вывода
 }
-

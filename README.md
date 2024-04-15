@@ -9,6 +9,9 @@ All of project logic is divided by 4 steps.
 
 ## 1) Receiving a signal through emg/ecg sensor AD8232.
    AD8232 receivs signal with 3 electrods․ 1 negative. 1 muscle group and 1 support. After receiving, it's amplifys a signal.
+
+   ![image](https://github.com/Spied1/prosthetics/assets/117092326/52f67b1c-297a-4b6d-8219-4c2a4efe268c)
+
 ## 2) Clear signal from noises.
    Using algorithm of noise removing to get clear signal.
 ## 3) Check signal for fulfilment of conditions.
